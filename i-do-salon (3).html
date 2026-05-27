@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Do Hair — Salon & Hair Studio, Toa Payoh</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --rose:    #c9626a;
+  --rose-lt: #f5e8e9;
+  --rose-md: #e8b4b8;
+  --gold:    #b8862a;
+  --gold-lt: #f7f0e2;
+  --green:   #4a7c6f;
+  --green-lt:#e8f2ef;
+  --bg:      #fdf9f6;
+  --bg2:     #f8f2ec;
+  --white:   #ffffff;
+  --text:    #2c2420;
+  --text-md: #6b5c54;
+  --text-lt: #a89490;
+  --border:  #e8ddd8;
+  --radius:  12px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.nav-logo span { color: var(--rose); font-style: italic; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--text-md);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--rose); }
+.nav-cta {
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.nav-cta:hover { background: #b5484f; }
+.nav-hamburger { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text); }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #fdf6f0 0%, #f9ece8 50%, #f0ede8 100%);
+  padding: 80px 5% 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 88vh;
+}
+.hero-text {}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--rose-md);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-size: 0.78rem;
+  color: var(--rose);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+.hero-pill::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: var(--rose);
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+.hero h1 em { color: var(--rose); font-style: italic; }
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-md);
+  max-width: 440px;
+  margin-bottom: 2rem;
+  line-height: 1.75;
+}
+.hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.btn-primary:hover { background: #b5484f; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.btn-outline:hover { border-color: var(--rose); color: var(--rose); }
+.hero-stats {
+  display: flex; gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  display: block;
+}
+.hero-stat-label { font-size: 0.75rem; color: var(--text-lt); margin-top: 2px; }
+
+/* HERO VISUAL */
+.hero-visual {
+  position: relative;
+  display: flex; justify-content: center; align-items: center;
+}
+.hero-card-main {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 40px rgba(180,100,90,0.12);
+  width: 320px;
+  position: relative; z-index: 2;
+}
+.salon-badge {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--rose-lt);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.salon-badge-icon { font-size: 1.8rem; }
+.salon-badge-text { font-size: 0.78rem; color: var(--rose); font-weight: 600; line-height: 1.3; }
+.salon-badge-sub { font-size: 0.72rem; color: var(--text-lt); font-weight: 400; }
+.rating-display { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.2rem; }
+.stars { color: #f59e0b; font-size: 1rem; letter-spacing: 1px; }
+.rating-num { font-weight: 700; font-size: 1.1rem; }
+.rating-count { font-size: 0.78rem; color: var(--text-lt); }
+.mini-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.mini-tag {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.72rem;
+  color: var(--text-md);
+}
+.floating-chip {
+  position: absolute;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  font-size: 0.78rem;
+  font-weight: 500;
+  display: flex; align-items: center; gap: 0.5rem;
+  white-space: nowrap;
+  z-index: 3;
+}
+.chip1 { top: -20px; right: -30px; color: var(--green); }
+.chip2 { bottom: 20px; left: -40px; color: var(--gold); }
+.chip-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* TICKER */
+.ticker-wrap {
+  background: var(--rose);
+  overflow: hidden;
+  padding: 0.7rem 0;
+}
+.ticker {
+  display: flex; gap: 3rem;
+  white-space: nowrap;
+  animation: slide 22s linear infinite;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+}
+.ticker span { color: rgba(255,255,255,0.6); }
+@keyframes slide { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* SECTION COMMON */
+.section { padding: 80px 5%; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-tag {
+  display: inline-block;
+  background: var(--rose-lt);
+  color: var(--rose);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+.section-tag.green { background: var(--green-lt); color: var(--green); }
+.section-tag.gold { background: var(--gold-lt); color: var(--gold); }
+h2.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+h2.section-title em { color: var(--rose); font-style: italic; }
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--text-md);
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+/* SERVICES */
+.services-bg { background: var(--white); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.service-card {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.service-card:hover { border-color: var(--rose-md); box-shadow: 0 6px 24px rgba(201,98,106,0.10); transform: translateY(-3px); }
+.svc-icon {
+  width: 46px; height: 46px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.1rem;
+}
+.svc-rose { background: var(--rose-lt); }
+.svc-green { background: var(--green-lt); }
+.svc-gold { background: var(--gold-lt); }
+.service-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text); }
+.service-desc { font-size: 0.83rem; color: var(--text-md); line-height: 1.6; }
+.service-price {
+  margin-top: 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--rose);
+  display: flex; align-items: baseline; gap: 0.3rem;
+}
+.service-price small { font-size: 0.72rem; color: var(--text-lt); font-weight: 400; }
+
+/* TEAM */
+.team-bg { background: var(--bg2); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.stylist-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.25s;
+}
+.stylist-card:hover { border-color: var(--rose-md); box-shadow: 0 4px 20px rgba(201,98,106,0.09); transform: translateY(-3px); }
+.stylist-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--rose-lt);
+  color: var(--rose);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+  border: 3px solid var(--rose-md);
+}
+.stylist-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem; }
+.stylist-role { font-size: 0.78rem; color: var(--rose); font-weight: 500; margin-bottom: 0.8rem; }
+.stylist-stars { color: #f59e0b; font-size: 0.85rem; letter-spacing: 1px; }
+.stylist-bio { font-size: 0.8rem; color: var(--text-md); line-height: 1.55; margin-top: 0.8rem; }
+
+/* REVIEWS */
+.reviews-bg { background: var(--white); }
+.rating-summary {
+  display: flex; align-items: center; gap: 3rem;
+  background: var(--bg2);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  margin: 2.5rem 0;
+  flex-wrap: wrap; gap: 2rem;
+}
+.rating-big-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+.rating-stars-big { color: #f59e0b; font-size: 1.3rem; margin: 0.3rem 0; }
+.rating-total { font-size: 0.82rem; color: var(--text-lt); }
+.rating-bars { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 7px; }
+.bar-row { display: flex; align-items: center; gap: 0.7rem; }
+.bar-label { font-size: 0.75rem; color: var(--text-md); width: 24px; text-align: right; }
+.bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; background: #f59e0b; border-radius: 3px; }
+
+/* REVIEW TICKER */
+.review-ticker-wrap {
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--rose-lt), var(--gold-lt), var(--rose-lt));
+  border: 1px solid var(--rose-md);
+  border-radius: var(--radius);
+  padding: 0.8rem 0;
+  margin: 1.5rem 0 2rem;
+  position: relative;
+}
+.review-ticker-wrap::before,
+.review-ticker-wrap::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2;
+  pointer-events: none;
+}
+.review-ticker-wrap::before { left: 0; background: linear-gradient(90deg, var(--rose-lt), transparent); }
+.review-ticker-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--gold-lt), transparent); }
+.review-ticker {
+  display: flex; gap: 2.5rem;
+  white-space: nowrap;
+  animation: reviewSlide 30s linear infinite;
+  font-size: 0.82rem;
+  color: var(--text-md);
+}
+.review-ticker-item { display: inline-flex; align-items: center; gap: 0.5rem; }
+.review-ticker-item .rt-star { color: #f59e0b; font-size: 0.75rem; }
+.review-ticker-item .rt-name { font-weight: 600; color: var(--rose); }
+.review-ticker-item .rt-sep { color: var(--rose-md); }
+@keyframes reviewSlide { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  perspective: 1200px;
+}
+
+/* 3D Review cards */
+.review-card {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  transition: border-color 0.3s, transform 0.35s, box-shadow 0.35s;
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0);
+  box-shadow: 0 2px 12px rgba(180,100,90,0.06);
+  cursor: default;
+}
+.review-card:hover {
+  border-color: var(--rose-md);
+  transform: perspective(800px) rotateX(-3deg) rotateY(3deg) translateZ(16px);
+  box-shadow: 0 16px 40px rgba(201,98,106,0.16), 0 4px 12px rgba(0,0,0,0.07);
+}
+.review-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.review-card:hover::after { opacity: 1; }
+.review-card { position: relative; }
+
+/* Hidden extra reviews */
+.review-card[data-extra] {
+  display: none;
+}
+.review-card.review-reveal {
+  display: block;
+  animation: revealCard 0.45s ease forwards;
+}
+@keyframes revealCard {
+  from { opacity: 0; transform: perspective(800px) rotateX(-8deg) translateY(24px) translateZ(-20px); }
+  to   { opacity: 1; transform: perspective(800px) rotateX(0deg) translateY(0) translateZ(0); }
+}
+
+/* View More button */
+.reviews-more-wrap {
+  display: flex; justify-content: center;
+  margin-top: 2.5rem;
+}
+.btn-view-more {
+  background: transparent;
+  color: var(--rose);
+  border: 2px solid var(--rose);
+  padding: 0.8rem 2.4rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-view-more::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+.btn-view-more:hover::before { transform: scaleX(1); }
+.btn-view-more:hover { color: #fff; }
+.btn-view-more span, .btn-view-more .vmb-arrow { position: relative; z-index: 1; }
+.vmb-arrow { transition: transform 0.25s; display: inline-block; }
+.btn-view-more:hover .vmb-arrow { transform: translateY(2px); }
+.btn-view-more.expanded .vmb-arrow { transform: rotate(180deg); }
+.btn-view-more.expanded:hover .vmb-arrow { transform: rotate(180deg) translateY(2px); }
+
+.review-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+.review-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--rose-lt);
+  color: var(--rose);
+  font-weight: 700; font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.review-name { font-weight: 600; font-size: 0.9rem; }
+.review-meta { font-size: 0.75rem; color: var(--text-lt); }
+.review-stars { color: #f59e0b; font-size: 0.8rem; }
+.review-text { font-size: 0.87rem; color: var(--text-md); line-height: 1.65; }
+.review-chip {
+  display: inline-block; margin-top: 1rem;
+  background: var(--rose-lt);
+  color: var(--rose);
+  font-size: 0.7rem; font-weight: 600;
+  padding: 0.2rem 0.7rem;
+  border-radius: 100px;
+}
+
+/* BOOKING */
+.booking-bg {
+  background: linear-gradient(135deg, #fdf6f0 0%, #f9ece8 100%);
+}
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+.booking-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.info-block { margin-bottom: 1.8rem; }
+.info-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-lt); margin-bottom: 0.4rem; }
+.info-value { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+.info-value a { color: var(--rose); text-decoration: none; }
+.info-value a:hover { text-decoration: underline; }
+.hours-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.hours-table td { padding: 5px 0; color: var(--text-md); }
+.hours-table td:last-child { text-align: right; color: var(--text); font-weight: 500; }
+.hours-table tr.today td { color: var(--rose); font-weight: 600; }
+
+/* FORM */
+.booking-form {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.07);
+}
+.booking-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+.form-group { margin-bottom: 1.1rem; }
+.form-label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-md); margin-bottom: 0.4rem; }
+.form-input, .form-select {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.form-input:focus, .form-select:focus { border-color: var(--rose); }
+.form-input::placeholder { color: var(--text-lt); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-submit {
+  width: 100%;
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+.form-submit:hover { background: #b5484f; transform: translateY(-1px); }
+.form-note { font-size: 0.75rem; color: var(--text-lt); text-align: center; margin-top: 0.7rem; }
+
+/* FOOTER */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.7);
+  padding: 2.5rem 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.footer-logo span { color: var(--rose-md); font-style: italic; }
+.footer-sub { font-size: 0.78rem; margin-top: 0.2rem; }
+.footer-copy { font-size: 0.78rem; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--rose-md); }
+
+/* MODAL */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1000;
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 460px; width: 90%;
+  position: relative;
+  animation: popIn 0.25s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+@keyframes popIn { from{opacity:0;transform:scale(0.95) translateY(10px)} to{opacity:1;transform:scale(1) translateY(0)} }
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: var(--bg2); border: none;
+  width: 32px; height: 32px; border-radius: 50%;
+  font-size: 1rem; cursor: pointer; color: var(--text-md);
+  transition: background 0.2s;
+}
+.modal-close:hover { background: var(--rose-lt); color: var(--rose); }
+.modal h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text); margin-bottom: 0.8rem; }
+.modal p { font-size: 0.9rem; color: var(--text-md); line-height: 1.65; }
+.modal-success { text-align: center; padding: 1rem 0; }
+.checkmark {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--green-lt);
+  color: var(--green);
+  font-size: 1.6rem;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.2rem;
+}
+
+/* FADE IN */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; padding: 60px 5% 60px; min-height: auto; }
+  .hero-visual { display: none; }
+  .booking-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">I Do <span>Hair</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#booking">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+  <button class="nav-hamburger">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-pill fade-in">Open Today · Toa Payoh, Singapore</div>
+    <h1 class="fade-in">Your Hair,<br><em>Beautifully Done.</em></h1>
+    <p class="hero-desc fade-in">Premium hair cutting, colouring & styling at I Do Hair — Salon & Hair Studio. No hard selling, just honest craft and happy clients.</p>
+    <div class="hero-btns fade-in">
+      <a href="#booking" class="btn-primary">Book Appointment</a>
+      <a href="#services" class="btn-outline">See Services</a>
+    </div>
+    <div class="hero-stats fade-in">
+      <div>
+        <span class="hero-stat-num">4.9★</span>
+        <div class="hero-stat-label">486 Reviews</div>
+      </div>
+      <div>
+        <span class="hero-stat-num">45min</span>
+        <div class="hero-stat-label">Avg Service</div>
+      </div>
+      <div>
+        <span class="hero-stat-num">Zero</span>
+        <div class="hero-stat-label">Hard Selling</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual fade-in">
+    <div class="hero-card-main">
+      <div class="salon-badge">
+        <div class="salon-badge-icon">✂️</div>
+        <div>
+          <div class="salon-badge-text">I Do Hair</div>
+          <div class="salon-badge-sub">Salon & Hair Studio · Toa Payoh</div>
+        </div>
+      </div>
+      <div class="rating-display">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.9</span>
+        <span class="rating-count">· 486 reviews</span>
+      </div>
+      <div class="mini-tags">
+        <span class="mini-tag">No hard selling</span>
+        <span class="mini-tag">Layered perm</span>
+        <span class="mini-tag">Natural curls</span>
+        <span class="mini-tag">Scalp treatment</span>
+        <span class="mini-tag">Colour</span>
+      </div>
+    </div>
+    <div class="floating-chip chip1">
+      <div class="chip-dot" style="background:#4a7c6f"></div>
+      Open now · closes 8pm
+    </div>
+    <div class="floating-chip chip2">
+      <div class="chip-dot" style="background:#f59e0b"></div>
+      TikTok famous 🎵
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    ✂ Hair Cut &amp; Style <span>·</span> 🎨 Colour &amp; Highlights <span>·</span> 〜 Perm &amp; Curl <span>·</span> ✦ Scalp Treatment <span>·</span> ▸ Rebonding <span>·</span> No Hard Selling <span>·</span> Toa Payoh, Singapore <span>·</span>
+    ✂ Hair Cut &amp; Style <span>·</span> 🎨 Colour &amp; Highlights <span>·</span> 〜 Perm &amp; Curl <span>·</span> ✦ Scalp Treatment <span>·</span> ▸ Rebonding <span>·</span> No Hard Selling <span>·</span> Toa Payoh, Singapore <span>·</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-bg" id="services">
+  <div class="section-inner">
+    <div class="fade-in">
+      <span class="section-tag">Our Services</span>
+      <h2 class="section-title">Everything Your Hair <em>Needs</em></h2>
+      <p class="section-sub">From a quick trim to a full transformation — our stylists handle it all with care and skill.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in" onclick="openModal('haircut')">
+        <div class="svc-icon svc-rose">✂️</div>
+        <div class="service-name">Hair Cut & Style</div>
+        <div class="service-desc">Precision cuts tailored to your face shape and lifestyle. Wash, cut & blow-dry included — done in under 45 minutes.</div>
+        <div class="service-price">From S$25 <small>onwards</small></div>
+      </div>
+      <div class="service-card fade-in" onclick="openModal('colour')">
+        <div class="svc-icon svc-gold">🎨</div>
+        <div class="service-name">Colour & Highlights</div>
+        <div class="service-desc">Full colour, balayage, highlights or ombre. Vibrant, long-lasting results using professional-grade products.</div>
+        <div class="service-price">From S$80 <small>onwards</small></div>
+      </div>
+      <div class="service-card fade-in" onclick="openModal('perm')">
+        <div class="svc-icon svc-green">〜</div>
+        <div class="service-name">Perm & Curl</div>
+        <div class="service-desc">Layered perms, digital perms and natural curls. Voluminous, long-lasting waves that suit your texture.</div>
+        <div class="service-price">From S$120 <small>onwards</small></div>
+      </div>
+      <div class="service-card fade-in" onclick="openModal('treatment')">
+        <div class="svc-icon svc-rose">✦</div>
+        <div class="service-name">Scalp Treatment</div>
+        <div class="service-desc">Deep scalp analysis and nourishing treatments for hair loss, dandruff, and dryness at the root level.</div>
+        <div class="service-price">From S$60 <small>onwards</small></div>
+      </div>
+      <div class="service-card fade-in" onclick="openModal('rebond')">
+        <div class="svc-icon svc-gold">—</div>
+        <div class="service-name">Rebonding & Straightening</div>
+        <div class="service-desc">Korean rebonding, thermal straightening and keratin treatment for silky-smooth, frizz-free results.</div>
+        <div class="service-price">From S$150 <small>onwards</small></div>
+      </div>
+      <div class="service-card fade-in" onclick="openModal('kids')">
+        <div class="svc-icon svc-green">🧒</div>
+        <div class="service-name">Kids' Cut</div>
+        <div class="service-desc">Gentle, fun haircuts for children in a welcoming environment. Fast and stress-free for all ages.</div>
+        <div class="service-price">From S$15 <small>onwards</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section team-bg" id="team">
+  <div class="section-inner">
+    <div class="fade-in">
+      <span class="section-tag green">Our Team</span>
+      <h2 class="section-title">Meet the <em>Stylists</em></h2>
+      <p class="section-sub">Skilled, friendly and zero pressure. Our team is here to make you look and feel great.</p>
+    </div>
+    <div class="team-grid">
+      <div class="stylist-card fade-in">
+        <div class="stylist-avatar">OR</div>
+        <div class="stylist-name">Orange</div>
+        <div class="stylist-role">Senior Stylist</div>
+        <div class="stylist-stars">★★★★★</div>
+        <div class="stylist-bio">Known for butterfly cuts and fast, efficient service. Completes wash + cut + style in under 45 min.</div>
+      </div>
+      <div class="stylist-card fade-in">
+        <div class="stylist-avatar">DX</div>
+        <div class="stylist-name">Da Xiong</div>
+        <div class="stylist-role">Senior Stylist</div>
+        <div class="stylist-stars">★★★★★</div>
+        <div class="stylist-bio">Top-notch precision. Can perfectly recreate reference photos — as seen on TikTok!</div>
+      </div>
+      <div class="stylist-card fade-in">
+        <div class="stylist-avatar">XG</div>
+        <div class="stylist-name">Xing</div>
+        <div class="stylist-role">Colour Specialist</div>
+        <div class="stylist-stars">★★★★★</div>
+        <div class="stylist-bio">Specialises in cut and highlight/colour services. Professional and deeply client-focused.</div>
+      </div>
+      <div class="stylist-card fade-in" style="border-style:dashed">
+        <div class="stylist-avatar" style="background:var(--bg2);color:var(--text-lt);border-color:var(--border)">+</div>
+        <div class="stylist-name" style="color:var(--text-lt)">Join Our Team</div>
+        <div class="stylist-role" style="color:var(--text-lt)">We're Hiring</div>
+        <div class="stylist-bio" style="margin-top:0.6rem">Passionate about hair? Call us to find out about openings at I Do Hair.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews-bg" id="reviews">
+  <div class="section-inner">
+    <div class="fade-in">
+      <span class="section-tag gold">Reviews</span>
+      <h2 class="section-title">What Clients <em>Say</em></h2>
+    </div>
+    <div class="rating-summary fade-in">
+      <div>
+        <div class="rating-big-num">4.9</div>
+        <div class="rating-stars-big">★★★★★</div>
+        <div class="rating-total">486 Google Reviews</div>
+      </div>
+      <div class="rating-bars">
+        <div class="bar-row"><span class="bar-label">5★</span><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">4★</span><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">3★</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">2★</span><div class="bar-track"><div class="bar-fill" style="width:0.5%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">1★</span><div class="bar-track"><div class="bar-fill" style="width:0.5%"></div></div></div>
+      </div>
+    </div>
+    <!-- Moving review quotes ticker -->
+    <div class="review-ticker-wrap">
+      <div class="review-ticker">
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Sharlin</span> <span class="rt-sep">·</span> "Perfect colour and cut — exactly what I wanted!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Hazel</span> <span class="rt-sep">·</span> "Amazing layered perm, so happy with the results!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Da Xiong fan</span> <span class="rt-sep">·</span> "Came from TikTok — completely blown away!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Indycay</span> <span class="rt-sep">·</span> "Very professional, love my colour & cut!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Yuzu</span> <span class="rt-sep">·</span> "Butterfly cut looked exactly like my inspo pic!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Recent Visit</span> <span class="rt-sep">·</span> "Orange did it all in under 45 minutes, love it!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Sharlin</span> <span class="rt-sep">·</span> "Perfect colour and cut — exactly what I wanted!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Hazel</span> <span class="rt-sep">·</span> "Amazing layered perm, so happy with the results!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Da Xiong fan</span> <span class="rt-sep">·</span> "Came from TikTok — completely blown away!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Indycay</span> <span class="rt-sep">·</span> "Very professional, love my colour & cut!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Yuzu</span> <span class="rt-sep">·</span> "Butterfly cut looked exactly like my inspo pic!" </span>
+        <span class="review-ticker-item"><span class="rt-star">★★★★★</span> <span class="rt-name">Recent Visit</span> <span class="rt-sep">·</span> "Orange did it all in under 45 minutes, love it!" </span>
+      </div>
+    </div>
+
+    <div class="reviews-grid" id="reviewsGrid">
+
+      <!-- VISIBLE: Card 1 -->
+      <div class="review-card fade-in">
+        <div class="review-header">
+          <div class="review-avatar">SL</div>
+          <div>
+            <div class="review-name">Sharlin Lim</div>
+            <div class="review-meta review-stars">★★★★★ · 7 months ago</div>
+          </div>
+        </div>
+        <div class="review-text">Came all the way here because of TikTok and was utterly surprised! The quality of service is so good, no hard selling. Da Xiong's skills are top notch — gave him a reference pic and he perfectly recreated it.</div>
+        <span class="review-chip">Da Xiong · Cut</span>
+      </div>
+
+      <!-- VISIBLE: Card 2 -->
+      <div class="review-card fade-in">
+        <div class="review-header">
+          <div class="review-avatar">IL</div>
+          <div>
+            <div class="review-name">Indycay Lim</div>
+            <div class="review-meta review-stars">★★★★★ · 4 months ago</div>
+          </div>
+        </div>
+        <div class="review-text">Had an excellent cut and highlight/colour experience with Xing. Very professional and took the time to understand exactly what I wanted. Absolutely love the results!</div>
+        <span class="review-chip">Xing · Colour & Cut</span>
+      </div>
+
+      <!-- VISIBLE: Card 3 -->
+      <div class="review-card fade-in">
+        <div class="review-header">
+          <div class="review-avatar">YZ</div>
+          <div>
+            <div class="review-name">Yuzu</div>
+            <div class="review-meta review-stars">★★★★★ · 4 months ago</div>
+          </div>
+        </div>
+        <div class="review-text">Very happy with the results! Love the colour and my butterfly haircut — it looked exactly like my inspo pic. Orange even taught me how to style it at home. Highly recommended!</div>
+        <span class="review-chip">Orange · Butterfly Cut</span>
+      </div>
+
+      <!-- VISIBLE: Card 4 -->
+      <div class="review-card fade-in">
+        <div class="review-header">
+          <div class="review-avatar">RV</div>
+          <div>
+            <div class="review-name">Recent Visit</div>
+            <div class="review-meta review-stars">★★★★★ · Today</div>
+          </div>
+        </div>
+        <div class="review-text">Went to cut my hair today. Orange helped me wash, cut and style my hair. He was very fast and efficient — did all that in under 45 minutes. I love how my hair turned out!</div>
+        <span class="review-chip">Orange · Wash, Cut & Style</span>
+      </div>
+
+      <!-- VISIBLE: Card 5 -->
+      <div class="review-card fade-in">
+        <div class="review-header">
+          <div class="review-avatar">HW</div>
+          <div>
+            <div class="review-name">Hazel Wong</div>
+            <div class="review-meta review-stars">★★★★★ · 2 months ago</div>
+          </div>
+        </div>
+        <div class="review-text">Had my layered perm done here and I'm absolutely in love! The stylist took the time to explain the process and gave me exactly the volume I wanted. The salon atmosphere is so cosy and welcoming — will definitely come back!</div>
+        <span class="review-chip">Orange · Layered Perm</span>
+      </div>
+
+      <!-- VISIBLE: Card 6 -->
+      <div class="review-card fade-in">
+        <div class="review-header">
+          <div class="review-avatar">MT</div>
+          <div>
+            <div class="review-name">Michelle Tan</div>
+            <div class="review-meta review-stars">★★★★★ · 3 months ago</div>
+          </div>
+        </div>
+        <div class="review-text">First time here and honestly blown away. No hard selling at all — just great, honest service. Da Xiong listened carefully and gave me the best haircut I've had in years. Booking again next month for sure!</div>
+        <span class="review-chip">Da Xiong · Cut & Style</span>
+      </div>
+
+      <!-- HIDDEN: Card 7 -->
+      <div class="review-card fade-in" data-extra="true">
+        <div class="review-header">
+          <div class="review-avatar">JK</div>
+          <div>
+            <div class="review-name">Jamie K.</div>
+            <div class="review-meta review-stars">★★★★★ · 5 months ago</div>
+          </div>
+        </div>
+        <div class="review-text">The rebonding treatment was amazing — my hair has never been this smooth and shiny. Xing was super professional and walked me through every step. Worth every cent, highly recommended!</div>
+        <span class="review-chip">Xing · Rebonding</span>
+      </div>
+
+      <!-- HIDDEN: Card 8 -->
+      <div class="review-card fade-in" data-extra="true">
+        <div class="review-header">
+          <div class="review-avatar">PR</div>
+          <div>
+            <div class="review-name">Priya R.</div>
+            <div class="review-meta review-stars">★★★★★ · 6 months ago</div>
+          </div>
+        </div>
+        <div class="review-text">Got my highlights done and the colour is gorgeous! They matched it perfectly to my skin tone. The whole experience was relaxing — no pressure, just good vibes and great results.</div>
+        <span class="review-chip">Xing · Highlights</span>
+      </div>
+
+      <!-- HIDDEN: Card 9 -->
+      <div class="review-card fade-in" data-extra="true">
+        <div class="review-header">
+          <div class="review-avatar">LC</div>
+          <div>
+            <div class="review-name">Li Chen</div>
+            <div class="review-meta review-stars">★★★★★ · 1 month ago</div>
+          </div>
+        </div>
+        <div class="review-text">Brought my daughter here for her first proper haircut and she loved it! Orange was so patient and gentle, made her feel totally at ease. The kids' cut was done perfectly — she keeps asking to go back!</div>
+        <span class="review-chip">Orange · Kids' Cut</span>
+      </div>
+
+      <!-- HIDDEN: Card 10 -->
+      <div class="review-card fade-in" data-extra="true">
+        <div class="review-header">
+          <div class="review-avatar">AS</div>
+          <div>
+            <div class="review-name">Aditi S.</div>
+            <div class="review-meta review-stars">★★★★★ · 8 months ago</div>
+          </div>
+        </div>
+        <div class="review-text">The scalp treatment here is a game changer. My hair has been so much healthier since. They really take the time to understand your scalp condition before starting. Would 100% recommend to anyone struggling with hair loss.</div>
+        <span class="review-chip">Scalp Treatment</span>
+      </div>
+
+    </div>
+
+    <!-- View More Button -->
+    <div class="reviews-more-wrap">
+      <button class="btn-view-more" id="viewMoreBtn" onclick="toggleReviews()">
+        <span>View All Reviews</span>
+        <span class="vmb-arrow">▼</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section booking-bg" id="booking">
+  <div class="section-inner">
+    <div class="booking-grid">
+      <div>
+        <div class="fade-in">
+          <span class="section-tag">Visit Us</span>
+          <h2 class="section-title">Book an <em>Appointment</em></h2>
+          <p class="section-sub" style="margin-bottom:2.5rem">Walk-ins welcome! Booking ahead secures your preferred stylist and time slot.</p>
+        </div>
+        <div class="fade-in">
+          <div class="info-block">
+            <div class="info-label">Address</div>
+            <div class="info-value">Lor 4 Toa Payoh, 94号 #01-38<br>Singapore 310094</div>
+          </div>
+          <div class="info-block">
+            <div class="info-label">Phone</div>
+            <div class="info-value"><a href="tel:+6569086898">+65 6908 6898</a></div>
+          </div>
+          <div class="info-block">
+            <div class="info-label">Opening Hours</div>
+            <div class="info-value">
+              <table class="hours-table">
+                <tr><td>Monday – Friday</td><td>10:00 – 20:00</td></tr>
+                <tr class="today"><td>Wednesday (Today)</td><td>Open Now ✓</td></tr>
+                <tr><td>Saturday – Sunday</td><td>10:00 – 20:00</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-label">Find Us</div>
+            <div class="info-value"><a href="https://maps.google.com/?q=94+Lor+4+Toa+Payoh+%2301-38+Singapore+310094" target="_blank">View on Google Maps →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="booking-form fade-in">
+        <h3>Request an Appointment</h3>
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Your name" id="f-name">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" placeholder="+65 XXXX XXXX" id="f-phone">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Date</label>
+            <input type="date" class="form-input" id="f-date">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Preferred Time</label>
+            <select class="form-select" id="f-time">
+              <option value="">Select time</option>
+              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+              <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+              <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Stylist</label>
+            <select class="form-select" id="f-stylist">
+              <option value="">No preference</option>
+              <option>Orange</option><option>Da Xiong</option><option>Xing</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service</label>
+          <select class="form-select" id="f-service">
+            <option value="">Select a service</option>
+            <option>Hair Cut & Style</option><option>Colour & Highlights</option>
+            <option>Perm & Curl</option><option>Scalp Treatment</option>
+            <option>Rebonding & Straightening</option><option>Kids' Cut</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Notes (optional)</label>
+          <textarea class="form-input" rows="3" placeholder="Reference photos, special requests..." style="resize:vertical;font-family:'Inter',sans-serif" id="f-notes"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitBooking()">Request Appointment →</button>
+        <p class="form-note">We'll confirm via WhatsApp or call within 2 hours</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">I Do <span>Hair</span></div>
+    <div class="footer-sub">Salon & Hair Studio · Toa Payoh, Singapore</div>
+  </div>
+  <div class="footer-copy">© 2025 I Do Hair · All rights reserved</div>
+  <div class="footer-links">
+    <a href="https://maps.google.com/?q=94+Lor+4+Toa+Payoh+%2301-38+Singapore+310094" target="_blank">Google Maps</a>
+    <a href="tel:+6569086898">Call Us</a>
+    <a href="#booking">Book Now</a>
+  </div>
+</footer>
+
+<!-- SERVICE MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modal-title"></h3>
+    <p id="modal-body" style="margin-top:0.8rem"></p>
+    <button class="btn-primary" style="margin-top:2rem;width:100%" onclick="closeModal();document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book This Service</button>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="modal-success">
+      <div class="checkmark">✓</div>
+      <h3>Appointment Requested!</h3>
+      <p style="margin-top:0.8rem;color:var(--text-md)">Thank you! The I Do Hair team will confirm your booking via call or WhatsApp within 2 hours. See you soon!</p>
+      <button class="btn-primary" style="margin-top:2rem" onclick="document.getElementById('successModal').classList.remove('active')">Done</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const services = {
+  haircut: { title: 'Hair Cut & Style', body: 'Precision cuts tailored to your face shape, hair texture, and personal style. Every cut includes a wash and blow-dry, typically completed in under 45 minutes. From S$25 onwards.' },
+  colour:  { title: 'Colour & Highlights', body: 'From full colour to balayage and ombre, we use professional-grade products for vibrant, long-lasting results. Our colour specialists consult with you to find the perfect shade. From S$80 onwards.' },
+  perm:    { title: 'Perm & Curl', body: 'Voluminous layered perms, digital perms, or natural curls. We specialise in Korean-style perms that look natural and last. From S$120 onwards.' },
+  treatment:{ title: 'Scalp Treatment', body: 'Our treatments target hair loss, dandruff, oiliness, and dryness using professional-grade products. A healthy scalp is the foundation of great hair. From S$60 onwards.' },
+  rebond:  { title: 'Rebonding & Straightening', body: 'Silky-smooth, frizz-free hair with Korean rebonding, thermal straightening, and keratin treatment. Results last 4–6 months. From S$150 onwards.' },
+  kids:    { title: "Kids' Cut", body: 'Gentle, fun haircuts for children of all ages in a welcoming environment. Patient stylists, fast service. From S$15 onwards.' }
+};
+function openModal(key) {
+  document.getElementById('modal-title').textContent = services[key].title;
+  document.getElementById('modal-body').textContent = services[key].body;
+  document.getElementById('modal').classList.add('active');
+}
+function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+function submitBooking() {
+  const n = document.getElementById('f-name').value.trim();
+  const p = document.getElementById('f-phone').value.trim();
+  const d = document.getElementById('f-date').value;
+  const t = document.getElementById('f-time').value;
+  if (!n || !p || !d || !t) { alert('Please fill in your name, phone, date, and preferred time.'); return; }
+  document.getElementById('successModal').classList.add('active');
+  ['f-name','f-phone','f-date','f-time','f-service','f-stylist','f-notes'].forEach(id => document.getElementById(id).value = '');
+}
+
+document.getElementById('f-date').min = new Date().toISOString().split('T')[0];
+
+function toggleReviews() {
+  const btn = document.getElementById('viewMoreBtn');
+  const extras = document.querySelectorAll('.review-card[data-extra]');
+  const isExpanded = btn.classList.contains('expanded');
+  if (!isExpanded) {
+    extras.forEach((card, i) => {
+      card.style.display = 'block';
+      card.classList.add('review-reveal');
+      card.style.animationDelay = (i * 0.09) + 's';
+    });
+    btn.classList.add('expanded');
+    btn.querySelector('span').textContent = 'Show Less';
+  } else {
+    extras.forEach(card => {
+      card.style.display = 'none';
+      card.classList.remove('review-reveal');
+    });
+    btn.classList.remove('expanded');
+    btn.querySelector('span').textContent = 'View All Reviews';
+    document.getElementById('reviews').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 70); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
